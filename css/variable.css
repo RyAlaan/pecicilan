@@ -1,6 +1,6 @@
 :root {
-  --color-background: #000;
-  --text-color: #fff;
+  --background-color: #ffffff;
+  --primary-color: #080c34;
 
   --font-nunito: "Nunito sans", sans-serif;
 }
