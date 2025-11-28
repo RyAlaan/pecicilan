@@ -1,0 +1,59 @@
+{
+  "url": "https://api.themoviedb.org/3/search/movie?query=good%20will%20hunting&include_adult=false&language=en-US&page=1",
+  "query": "good will hunting",
+  "response" : {
+    "page": 1,
+    "results": [
+      {
+        "adult": false,
+        "backdrop_path": "/bpV8wn48s82au37QyUJ51S7X2Vf.jpg",
+        "genre_ids": [18],
+        "id": 489,
+        "original_language": "en",
+        "original_title": "Good Will Hunting",
+        "overview": "Headstrong yet aimless, Will Hunting has a genius-level IQ but chooses to work as a janitor at MIT. When he secretly solves highly difficult graduate-level math problems, his talents are discovered by Professor Gerald Lambeau, who decides to help the misguided youth reach his potential. When Will is arrested for attacking a police officer, Professor Lambeau makes a deal to get leniency for him if he gets court-ordered therapy. Eventually, therapist Dr. Sean Maguire helps Will confront the demons that are holding him back.",
+        "popularity": 12.855,
+        "poster_path": "/z2FnLKpFi1HPO7BEJxdkv6hpJSU.jpg",
+        "release_date": "1997-12-05",
+        "title": "Good Will Hunting",
+        "video": false,
+        "vote_average": 8.157,
+        "vote_count": 13270
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/7samxuFc8uzxOp8taudrt9HeCVi.jpg",
+        "genre_ids": [99],
+        "id": 1409066,
+        "original_language": "en",
+        "original_title": "Reflecting On A Journey: Good Will Hunting 15 Years Later",
+        "overview": "Documentary featurette for the 15th Anniversary Edition of Good Will Hunting, including interviews with Matt Damon, Ben Affleck, Robin Williams, Gus Van Sant, Chris Moore, and Kevin Smith.",
+        "popularity": 0.2376,
+        "poster_path": "/opGrKfkXx2t1avoxAN9ReCzX6uY.jpg",
+        "release_date": "2012-08-21",
+        "title": "Reflecting On A Journey: Good Will Hunting 15 Years Later",
+        "video": false,
+        "vote_average": 0,
+        "vote_count": 0
+      },
+      {
+        "adult": false,
+        "backdrop_path": null,
+        "genre_ids": [18],
+        "id": 466697,
+        "original_language": "sh",
+        "original_title": "Dobra kob",
+        "overview": "An Australian of German descent has come to Yugoslavia on a hunting trip. He has an arrangement to hunt deers on the hunting ground high in Bosnian mountain. He shoots running deers straight in the head with his sniper carbine. This master shooting arouse suspicion with the gamekeeper that the stranger might be the notorious Nazi sniper who murdered many innocent civilians the same way during WWII.",
+        "popularity": 1.7183,
+        "poster_path": "/ufrfksN5XdkIR3X2Ytzn6CdnQuS.jpg",
+        "release_date": "1964-07-15",
+        "title": "Good Luck Hunting",
+        "video": false,
+        "vote_average": 5,
+        "vote_count": 4
+      }
+    ],
+    "total_pages": 1,
+    "total_results": 3
+  }
+}

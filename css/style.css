@@ -2,11 +2,21 @@
 @import url("./fonts.css");
 @import url("./reset.css");
 
-* {
-  box-sizing: border-box;
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito sans', sans-serif;
 }
 
 .containerBox {
@@ -48,12 +58,12 @@
 }
 
 .searchInput {
-  width: 80%;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  outline: none;
+    width: 80%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
 }
 
 body {
