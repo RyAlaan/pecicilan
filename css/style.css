@@ -2,6 +2,18 @@
 @import url("./fonts.css");
 @import url("./reset.css");
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   font-family: var(--font-primary);
   background-color: var(--color-background);
@@ -10,13 +22,15 @@ body {
   padding: 0;
   min-height: 100vh;
   min-width: 100vw;
+  overflow-x: hidden;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Nunito sans', sans-serif;
+.hidden {
+  display: none;
+}
+
+.show {
+  display: flex;
 }
 
 .containerBox {
@@ -28,18 +42,29 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.cardBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
 }
 
 .cardBox h1 {
-  font-family: "Poppins", sans-serif;
   font-size: 36px;
-  margin-bottom: 10px;
 }
 
 .cardBox p {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
-  margin-bottom: 20px;
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .searchIcon {
@@ -47,12 +72,11 @@ body {
 }
 
 .searchBar {
-  margin-top: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  max-width: 400px;
-  padding: 8px;
+  max-width: 448px;
+  padding: 2px 12px;
   border-radius: 12px;
   background-color: var(--background-color);
 }
@@ -64,6 +88,35 @@ body {
     border-radius: 25px;
     font-size: 16px;
     outline: none;
+}
+
+.suggestionList {
+  background: #fff;
+  border-radius: 16px;
+  max-height: 250px;
+  max-width: 448px;
+  overflow-y: auto;
+}
+
+.suggestionItem {
+  display: flex;
+  align-items: start;
+  gap: 15px;
+  padding: 10px;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.suggestionItem img {
+  width: 40px;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.suggestionItem p {
+  text-align: left;
+  font-weight: 600;
 }
 
 body {
