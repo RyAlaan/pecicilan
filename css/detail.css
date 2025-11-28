@@ -3,15 +3,21 @@
 @import url("./reset.css");
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 body {
   background: #000;
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-nunito);
 }
 
 .navbar {
@@ -19,10 +25,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 16px 0;
   z-index: 1000;
   background: transparent;
   backdrop-filter: blur(0px);
@@ -34,17 +37,24 @@ body {
   backdrop-filter: blur(12px);
 }
 
+.nav-container {
+  max-width: 1280px;
+  padding: 0 60px; /* padding kanan kiri */
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .nav-left {
-  width: 100px;
-  height: 35px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  margin-left: 50px;
-  padding: 0 13px;
   backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 12px;
+  padding: 6px 12px;
   color: white;
   opacity: 0.9;
   font-size: 14px;
@@ -57,14 +67,15 @@ body {
   border: none;
   outline: none;
   padding: 0 15px;
-  margin-right: 50px;
   background: rgba(255, 255, 255, 0.1);
   color: white;
   font-size: 13px;
 }
 
 .nav-search input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .container {
@@ -84,7 +95,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/assets/fallenAngles.jpg") center/cover no-repeat;
+  background: var(--backdrop) center/cover no-repeat;
   background-position: bottom;
   opacity: 0.4;
 }
@@ -97,54 +108,73 @@ body {
 
 .hero-content {
   position: relative;
-  max-width: 550px;
+  max-width: 768px;
   z-index: 2;
 }
 
-.nav {
+.hero-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.hero h1 {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.hero h1 span {
-  color: #bbb;
+.hero-title {
+  font-size: 64px;
+  font-weight: 700;
 }
 
 .tags {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }
 
 .play {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
   background: gold;
   color: black;
-  padding: 6px 12px;
+  padding: 6px 8px;
+  gap: 4px;
   border-radius: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 .badge {
-  border: 1px solid white;
-  padding: 6px 12px;
-  border-radius: 5px;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 18px;
+}
+
+.genre-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 .genre {
-  color: #aaa;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+}
+
+.genre:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .desc {
   color: #ccc;
-  line-height: 1.6;
-  margin: 10px 0 20px;
 }
 
 .movie-info {
@@ -153,62 +183,82 @@ body {
   align-items: center;
 }
 
-.rating {
-  margin-left: 10px;
+.director {
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
-/* POSTER */
-.poster {
-  position: absolute;
-  right: 80px;
-  top: 100px;
+.director-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.poster img {
-  width: 350px;
-  height: 420px;
+.director-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.director-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.director-title {
+  font-size: 16px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-img {
+  width: 20%;
+  aspect-ratio: 2/3;
   border-radius: 10px;
   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
 }
 
 /* RECOMMEND */
-.recommend {
+.recommendation {
   padding: 80px;
 }
 
-.recommend h2 {
-  margin-bottom: 25px;
+.recommendation h2 {
 }
 
-.movie-list {
+.recommendation-list {
   display: flex;
   gap: 50px;
 }
 
-.movie-card {
+.recommendation-card {
   width: 200px;
 }
 
-.movie-card img {
+.recommendation-card img {
   width: 100%;
   border-radius: 10px;
 }
 
-.movie-card p {
-  margin-top: 8px;
+.recommendation-card p {
   font-size: 14px;
 }
 
-.movie-card span {
+.recommendation-card span {
   font-size: 13px;
   color: gold;
 }
-
+/* 
 .footer {
   width: 100%;
   background: #181818;
   padding: 70px 20px 40px;
-  margin-top: 500px;
 }
 
 .footer-content {
@@ -240,4 +290,4 @@ body {
 .footer-copy {
   color: #777;
   font-size: 14px;
-}
+} */

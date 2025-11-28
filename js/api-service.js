@@ -1,5 +1,3 @@
-const url =
-  "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&";
 const option = {
   method: "GET",
   headers: {
@@ -8,9 +6,9 @@ const option = {
   },
 };
 
-export async function request(query) {
+export async function request(url) {
   try {
-    const response = await fetch(url + query, option).then((res) => res.json());
+    const response = await fetch(url, option).then((res) => res.json());
 
     return response;
   } catch (error) {
