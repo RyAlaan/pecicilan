@@ -7,12 +7,13 @@
   </head>
   <body>
     <nav class="navbar">
-      <div class="nav-left">
+      <a class="nav-left" href="index.html">
         <i class="icon" data-lucide="house"></i>
-        <p class="home-text">Home</p>
-      </div>
+        Home
+      </a>
 
       <div class="nav-search">
+        <i data-lucide="search"></i>
         <input type="text" placeholder="Find your next watch" />
       </div>
     </nav>
@@ -23,7 +24,12 @@
           <h1>Fallen Angles<span>(1995)</span></h1>
 
           <div class="tags">
-            <span class="play">▶ Play Trailer</span>
+            <a
+              class="button"
+              href="https://www.youtube.com/shorts/_5tTqX9aOrs"
+              target="_blank"
+              >▶ Play Trailer</a
+            >
             <span class="badge">R-Rated</span>
             <span class="genre">Drama</span>
           </div>
@@ -40,12 +46,11 @@
           </div>
         </div>
 
-        <div class="poster">
-          <img
-            src="/assets/fallen angels poster.jpg"
-            alt="Fallen Angles Poster"
-          />
-        </div>
+        <img
+          class="poster"
+          src="/assets/fallen angels poster.jpg"
+          alt="Fallen Angles Poster"
+        />
       </section>
 
       <!-- RECOMMENDATION -->
@@ -98,7 +103,7 @@
         <p class="footer-copy">Copyright © Pecicilan. All Rights Reserved.</p>
       </div>
     </footer>
-    <script src="./js/script.js"></script>
+    <script src="./js/detail.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
