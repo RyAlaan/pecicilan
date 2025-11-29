@@ -8,6 +8,14 @@ const inputSearch = document.querySelector('input[name="searchInput"]');
 // suggestion list
 const suggestionList = document.querySelector(".suggestionList");
 
+// recomendation list
+const slider = document.getElementById("slider");
+const slideLeft = document.getElementById("slideLeft");
+const slideRight = document.getElementById("slideRight");
+
+//sliding effect
+const trendingSlider = document.getElementById("slider");
+
 let searchTimeout;
 
 // event listener for search input
@@ -53,3 +61,34 @@ inputSearch.addEventListener("keyup", (e) => {
   }, 600);
 });
 
+slideRight.addEventListener("click", () => {
+  slider.scrollBy({ left: 300, behavior: "smooth" });
+});
+
+slideLeft.addEventListener("click", () => {
+  slider.scrollBy({ left: -300, behavior: "smooth" });
+});
+
+request("https://api.themoviedb.org/3/trending/movie/day?language=en-US")
+  .then((data) => {
+    console.log("TRENDING:", data); // DEBUG
+
+    trendingSlider.innerHTML = "";
+
+    data.results.slice(0, 10).forEach((movie, index) => {
+      const poster = movie.poster_path
+        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+        : "https://via.placeholder.com/300x450?text=No+Image";
+
+      const item = document.createElement("div");
+      item.classList.add("trending-item");
+
+      item.innerHTML = `
+        <span class="rank">${index + 1}</span>
+        <img src="${poster}">
+      `;
+
+      trendingSlider.appendChild(item);
+    });
+  })
+  .catch((err) => console.error("TRENDING ERROR:", err));
