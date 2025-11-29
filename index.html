@@ -10,32 +10,31 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search"
     />
   </head>
-  <body>
-    <section class="background">
-      <div class="background-overlay">
-        <div class="cardBox">
-          <h1>Welcome to Pecicilan</h1>
-          <p>Trusted platform to Watch any movies.</p>
-          <div class="searchBox">
-            <div class="searchBar">
-              <span class="searchIcon material-symbols-outlined"> search </span>
-              <input
-                name="searchInput"
-                class="searchInput"
-                type="text"
-                placeholder="Search for movies..."
-              />
-            </div>
-            <div class="suggestionList"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <nav class="navbar">
+    <p class="logo">PECICILAN</p>
+  </nav>
 
+  <header class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <h1>An website for rate and review your favorite movies</h1>
+      <p>
+        Let's try it
+      </p>
+      <div class="searchBox">
+        <div class="searchBar">
+          <i data-lucide="search"></i>
+          <input class="searchInput" type="text" name="searchInput" placeholder="Masukkan Nama Film">
+        </div>
+        <div class="suggestionList"></div>
+      </div>
+    </div>
+  </header>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
     </script>
     <script type="module" src="./js/script.js"></script>
-  </body>
+  </body> 
 </html>
