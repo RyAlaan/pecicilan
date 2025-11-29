@@ -3,82 +3,93 @@
 @import url("./reset.css");
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Nunito sans", sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  min-width: 100vw;
-  overflow-x: hidden;
+  background: black;
+  color: white;
 }
 
-.hidden {
-  display: none;
-}
-
-.show {
-  display: flex;
-}
-
-.background {
-  height: 100vh;
+.navbar {
+  position: fixed;
   width: 100%;
+  top: 0;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
-.background::before {
-  content: "";
+.logo {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.hero {
+  height: 100vh;
+  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/4ffe3d37-1fc1-4d93-b61a-1fa58c11ccff/web/ID-id-20251124-TRIFECTA-perspective_6121d1fc-400a-40b2-9ac6-1e50c80b36cc_small.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay {
   position: absolute;
   inset: 0;
-  background: url("/assets/oo.jpg") center/cover no-repeat;
-  background-position: bottom;
-  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.584);
 }
 
-.background-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #010100);
-}
-
-.cardBox {
+.hero-content {
+  position: relative;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 20px;
-  max-width: 600px;
+  align-items: center;
+  padding: 20px;
 }
 
-.cardBox h1 {
-  font-size: 36px;
+.hero-content h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.cardBox p {
-  font-family: "Poppins", sans-serif;
+.hero-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
   font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .searchBox {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-}
-
-.searchIcon {
-  color: var(--primary-color);
+  background-color: #ffff;
+  width: 450px;
+  border-radius: 15px;
 }
 
 .searchBar {
+  gap: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  max-width: 448px;
-  padding: 2px 12px;
+  justify-content: center;
+  padding: 2px 8px;
   border-radius: 12px;
   background-color: var(--background-color);
+  color: #010101;
 }
 
 .searchInput {
@@ -91,30 +102,35 @@ body {
 }
 
 .suggestionList {
-  background: #fff;
-  border-radius: 16px;
-  max-height: 250px;
+  background: #010101;
+  max-height: 200px;
   max-width: 448px;
   overflow-y: auto;
 }
 
 .suggestionItem {
   display: flex;
-  align-items: start;
-  gap: 15px;
-  padding: 10px;
-  color: var(--text-color);
-  border-bottom: 1px solid var(--border-color);
-}
+  align-items: center;
+  gap: 10px;
 
-.suggestionItem img {
-  width: 40px;
-  aspect-ratio: 2/3;
-  object-fit: cover;
+  text-decoration: none;
+  color: white;
+
+  padding: 8px;
   border-radius: 8px;
+  transition: 0.2s;
 }
 
-.suggestionItem p {
+.suggestionItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.suggestionImage {
+  width: 45px;
+  border-radius: 6px;
+}
+
+.suggestionTitle {
+  font-size: 14px;
   text-align: left;
-  font-weight: 600;
 }
