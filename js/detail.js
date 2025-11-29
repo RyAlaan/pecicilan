@@ -41,38 +41,40 @@ inputSearch.addEventListener("keyup", (e) => {
 
   // call search value after 600ms of inactivity
   searchTimeout = setTimeout(() => {
-    request(searchUrl + `query=${encodeURIComponent(searchValue)}`).then((data) => {
-      console.log(data);
+    request(searchUrl + `query=${encodeURIComponent(searchValue)}`).then(
+      (data) => {
+        console.log(data);
 
-      suggestionList.innerHTML = "";
+        suggestionList.innerHTML = "";
 
-      // mapping results
-      data.results.forEach((element) => {
-        console.log(element);
+        // mapping results
+        data.results.forEach((element) => {
+          console.log(element);
 
-        const suggestionItem = document.createElement("a");
+          const suggestionItem = document.createElement("a");
 
-        suggestionItem.href = `./detail.html?id=${element.id}`;
-        suggestionItem.classList.add("suggestionItem");
+          suggestionItem.href = `./detail.html?id=${element.id}`;
+          suggestionItem.classList.add("suggestionItem");
 
-        const suggestionImage = document.createElement("img");
+          const suggestionImage = document.createElement("img");
 
-        suggestionImage.src = `https://image.tmdb.org/t/p/original${element.poster_path}`;
-        suggestionImage.alt = element.title;
-        suggestionImage.classList.add("suggestionImage");
+          suggestionImage.src = `https://image.tmdb.org/t/p/original${element.poster_path}`;
+          suggestionImage.alt = element.title;
+          suggestionImage.classList.add("suggestionImage");
 
-        suggestionItem.appendChild(suggestionImage);
+          suggestionItem.appendChild(suggestionImage);
 
-        const suggestionTitle = document.createElement("p");
+          const suggestionTitle = document.createElement("p");
 
-        suggestionTitle.textContent = element.title;
-        suggestionTitle.classList.add("suggestionTitle");
+          suggestionTitle.textContent = element.title;
+          suggestionTitle.classList.add("suggestionTitle");
 
-        suggestionItem.appendChild(suggestionTitle);
+          suggestionItem.appendChild(suggestionTitle);
 
-        suggestionList.appendChild(suggestionItem);
-      });
-    });
+          suggestionList.appendChild(suggestionItem);
+        });
+      }
+    );
   }, 600);
 });
 
@@ -94,9 +96,12 @@ async function fetchDetail() {
       `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`
     );
 
+    const sliced =
+      data.title.length > 30 ? data.title.slice(0, 25) + "..." : data.title;
+
     const title = document.createElement("span");
     title.classList.add("title");
-    title.textContent = data.title;
+    title.textContent = sliced;
 
     const year = document.createElement("span");
     year.classList.add("year");

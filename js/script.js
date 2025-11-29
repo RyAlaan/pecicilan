@@ -19,13 +19,11 @@ inputSearch.addEventListener("keyup", (e) => {
   // call search value after 600ms of inactivity
   searchTimeout = setTimeout(() => {
     request(url + `query=${encodeURIComponent(searchValue)}`).then((data) => {
-      console.log(data);
 
       suggestionList.innerHTML = "";
 
       // mapping results
       data.results.forEach((element) => {
-        console.log(element);
 
         const suggestionItem = document.createElement("a");
 

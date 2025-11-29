@@ -4,55 +4,68 @@
 @import url("./common.css");
 
 body {
-  min-height: 100vh;
-  min-width: 100vw;
-  overflow-x: hidden;
+  background: black;
 }
 
-.hidden {
-  display: none;
-}
-
-.show {
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 20px 60px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
-.background {
+.logo {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.hero {
   height: 100vh;
-  width: 100%;
+  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/4ffe3d37-1fc1-4d93-b61a-1fa58c11ccff/web/ID-id-20251124-TRIFECTA-perspective_6121d1fc-400a-40b2-9ac6-1e50c80b36cc_small.jpg")
+    center/cover no-repeat;
   position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+  text-align: center;
 }
 
-.background::before {
-  content: "";
+.overlay {
   position: absolute;
   inset: 0;
-  background: url("/assets/oo.jpg") bottom/cover no-repeat;
-  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.584);
 }
 
-.background-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent, #010100);
-}
-
-.cardBox {
-  width: 100%;
+.hero-content {
+  position: relative;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  max-width: 600px;
+  gap: 40px;
 }
 
-.cardBox h1 {
-  font-size: 36px;
+.hero-header {
+  color: white;
 }
 
-.cardBox p {
-  font-family: var(--font-nunito);
+.hero-header h1 {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.hero-header p {
   font-size: 18px;
 }
 
@@ -60,23 +73,23 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 14px;
-}
-
-.searchIcon {
-  color: var(--primary-color);
+  align-items: start;
+  background-color: #ffff;
+  width: 450px;
+  border-radius: 15px;
 }
 
 .searchBar {
   width: 100%;
+  gap: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  max-width: 448px;
-  padding: 2px 12px;
+  justify-content: center;
+  padding: 2px 8px;
   border-radius: 12px;
   background-color: var(--background-color);
+  color: #010101;
 }
 
 .searchInput {
@@ -100,21 +113,25 @@ body {
 .suggestionItem {
   width: 100%;
   display: flex;
-  align-items: start;
-  gap: 15px;
-  padding: 10px;
-  color: var(--text-color);
-  border-bottom: 1px solid var(--border-color);
-}
+  gap: 10px;
 
-.suggestionItem img {
-  width: 40px;
-  aspect-ratio: 2/3;
-  object-fit: cover;
+  text-decoration: none;
+
+  padding: 8px;
   border-radius: 8px;
+  transition: 0.2s;
 }
 
-.suggestionItem p {
+.suggestionItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.suggestionImage {
+  width: 45px;
+  border-radius: 6px;
+}
+
+.suggestionTitle {
+  font-size: 14px;
   text-align: left;
-  font-weight: 600;
 }
