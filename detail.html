@@ -7,15 +7,23 @@
   </head>
   <body>
     <nav class="navbar">
-      <a class="nav-left" href="index.html">
-        <i class="icon" data-lucide="house"></i>
-        Home
-      </a>
+      <div class="navbar-content">
+        <a class="nav-left" href="index.html">
+          <i class="icon" data-lucide="house"></i>
+          Home
+        </a>
 
-      <div class="nav-search">
-        <i data-lucide="search"></i>
-        <input type="text" placeholder="Find your next watch" />
+        <div class="nav-search">
+          <i data-lucide="search"></i>
+          <input
+            name="searchInput"
+            type="text"
+            placeholder="Find your next watch"
+          />
+        </div>
       </div>
+
+      <div class="suggestionList hidden"></div>
     </nav>
     <div class="container">
       <section class="hero">

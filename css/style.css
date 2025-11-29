@@ -62,8 +62,10 @@ body {
 }
 
 .searchBox {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 14px;
 }
 
@@ -72,6 +74,7 @@ body {
 }
 
 .searchBar {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -82,7 +85,7 @@ body {
 }
 
 .searchInput {
-  width: 80%;
+  width: 100%;
   padding: 10px 15px;
   border: none;
   border-radius: 25px;
@@ -91,6 +94,7 @@ body {
 }
 
 .suggestionList {
+  width: 100%;
   background: #fff;
   border-radius: 16px;
   max-height: 250px;
@@ -99,6 +103,7 @@ body {
 }
 
 .suggestionItem {
+  width: 100%;
   display: flex;
   align-items: start;
   gap: 15px;
