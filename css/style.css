@@ -1,12 +1,7 @@
 @import url("./fonts.css");
 @import url("./variable.css");
 @import url("./reset.css");
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-nunito);
-}
+@import url("./common.css");
 
 body {
   background: black;
@@ -40,7 +35,7 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 24px;
   text-align: center;
 }
 
@@ -57,10 +52,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  gap: 40px;
 }
 
-.hero-content h1 {
+.hero-header {
+  color: white;
+}
+
+.hero-header h1 {
+  color: white;
   font-size: 50px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -71,12 +71,12 @@ body {
   margin-bottom: 20px;
 }
 
-.hero-content p {
+.hero-header p {
   font-size: 18px;
-  margin-bottom: 20px;
 }
 
 .searchBox {
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: #ffff;
@@ -86,6 +86,7 @@ body {
 }
 
 .searchBar {
+  width: 100%;
   gap: 10px;
   display: flex;
   flex-direction: row;
@@ -98,7 +99,7 @@ body {
 }
 
 .searchInput {
-  width: 80%;
+  width: 100%;
   padding: 10px 15px;
   border: none;
   border-radius: 25px;
@@ -114,14 +115,14 @@ body {
 }
 
 .suggestionItem {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
 
   text-decoration: none;
-  color: white;
 
-  padding: 8px;
+  padding: 8  px;
   border-radius: 8px;
   transition: 0.2s;
 }
