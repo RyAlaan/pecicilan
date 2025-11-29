@@ -3,15 +3,21 @@
 @import url("./reset.css");
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 body {
   background: #000;
   color: white;
-  font-family: "Nunito sans", sans-serif;
+  font-family: var(--font-nunito);
 }
 
 .navbar {
@@ -78,6 +84,7 @@ body {
   background: transparent;
   border: none;
   outline: none;
+  color: white;
 }
 
 .nav-search input::placeholder {
@@ -90,80 +97,134 @@ body {
 }
 
 .hero {
+  position: relative;
   height: 100vh;
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 80px;
+  background-color: #0e0e0e;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(14, 14, 14, 1) 100%
+  );
+  pointer-events: none;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/assets/fallenAngles.jpg") center/cover no-repeat;
+  background: var(--backdrop) center/cover no-repeat;
   background-position: bottom;
   opacity: 0.4;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #010100);
-}
-
 .hero-content {
   position: relative;
-  max-width: 550px;
+  max-width: 672px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   z-index: 2;
 }
 
-.hero h1 {
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 15px;
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.hero h1 span {
-    padding-left: 15px;
-  font-weight: normal;
-  color: #bbb;
+.hero-title {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.hero-title .year {
+  font-weight: 400;
+  color: #ccc;
+  margin-left: 10px;
 }
 
 .tags {
-  align-items: center;
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
 }
 
-.button {
-  text-decoration: none;
+.play {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
   background: gold;
   color: black;
-  padding: 6px 12px;
+  padding: 6px 8px;
+  gap: 4px;
   border-radius: 18px;
+  font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
 }
 
 .badge {
-  background-color: #f8f7f3;
+  width: fit-content;
+  background: #fff;
   color: #000;
-  padding: 6px 12px;
-  border-radius: 35px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 18px;
+}
+
+.genre-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 
 .genre {
-  color: #f8f7f3;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  transition: all 0.3s ease;
 }
 
-.desc {
+.genre:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hero-metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-description {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-description h3 {
+  font-size: 24px;
+}
+
+.hero-description .desc {
   color: #ccc;
-  line-height: 1.6;
-  margin: 10px 0 20px;
+  max-width: 672px;
 }
 
 .movie-info {
@@ -172,11 +233,42 @@ body {
   align-items: center;
 }
 
-.rating {
-  padding: 10px;
+.director {
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
-.poster {
+.director-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.director-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.director-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.director-title {
+  font-size: 16px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.hero-img {
   width: 25%;
   border-radius: 16px;
   aspect-ratio: 2/3;
@@ -184,43 +276,57 @@ body {
   z-index: 2;
 }
 
-.recommend {
-  padding: 80px;
+.recommendation {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 80px;
+  background-color: #0e0e0e
 }
 
-.recommend h2 {
-  margin-bottom: 25px;
+.recommendation h2 {
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.movie-list {
+.recommendation-list {
   display: flex;
   gap: 50px;
 }
 
-.movie-card {
+.recommendation-card {
   width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.movie-card img {
+.recommendation-card img {
   width: 100%;
   border-radius: 10px;
 }
 
-.movie-card p {
-  margin-top: 8px;
-  font-size: 14px;
+.recommendation-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
 }
 
-.movie-card span {
+.recommendation-card p {
+  font-size: 14px;
+  max-width: 80%;
+  line-clamp: 2;
+}
+
+.recommendation-card span {
   font-size: 13px;
   color: gold;
 }
-
+/* 
 .footer {
   width: 100%;
   background: #181818;
   padding: 70px 20px 40px;
-  margin-top: 500px;
 }
 
 .footer-content {
@@ -252,4 +358,4 @@ body {
 .footer-copy {
   color: #777;
   font-size: 14px;
-}
+} */

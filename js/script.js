@@ -1,5 +1,8 @@
 import { request } from "./api-service.js";
 
+const url =
+  "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&";
+
 const inputSearch = document.querySelector('input[name="searchInput"]');
 
 // suggestion list
@@ -15,7 +18,7 @@ inputSearch.addEventListener("keyup", (e) => {
 
   // call search value after 600ms of inactivity
   searchTimeout = setTimeout(() => {
-    request(`query=${encodeURIComponent(searchValue)}`).then((data) => {
+    request(url + `query=${encodeURIComponent(searchValue)}`).then((data) => {
       console.log(data);
 
       suggestionList.innerHTML = "";
