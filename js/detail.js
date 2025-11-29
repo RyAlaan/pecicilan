@@ -4,8 +4,6 @@ const url = "https://api.themoviedb.org/3/movie/";
 const navbar = document.querySelector(".navbar");
 const hero = document.querySelector(".hero");
 
-const title = document.querySelector(".title");
-const year = document.querySelector(".year");
 const heroTitle = document.querySelector(".hero-title");
 const playButton = document.querySelector(".play");
 const badge = document.querySelector(".badge");
@@ -30,37 +28,57 @@ window.addEventListener("scroll", () => {
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
+id || window.location.replace("index.html");
+
 async function fetchDetail() {
   try {
     const data = await request(
-      `${url}${id}?append_to_response=recommendations%2Crelease_dates%2Ccredits%2Cvideos&language=en-US`
+      `${url}${id}?append_to_response=recommendations%2Crelease_dates%2Ccredits%2Cvideos`
     );
+
+    document.title = `Pecicilan | ${data.title}`;
 
     hero.style.setProperty(
       "--backdrop",
       `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`
     );
 
-    const title = document.createElement("h1");
+    const title = document.createElement("span");
     title.classList.add("title");
     title.textContent = data.title;
 
-    const year = document.createElement("h1");
+    const year = document.createElement("span");
     year.classList.add("year");
     year.textContent = `(${data.release_date.split("-")[0]})`;
 
     heroTitle.appendChild(title);
     heroTitle.appendChild(year);
 
-    playButton.href = `https://www.youtube.com/watch?v=${data.videos.results[0].key}`;
-
-    const usRelease = data.release_dates.results.find(
-      (release) => release.iso_3166_1 === "US"
+    const trailer = data.videos.results.find(
+      (video) => video.type === "Trailer" && video.site === "YouTube"
     );
 
-    let usRating = usRelease.release_dates.find(
+    playButton.href = `https://www.youtube.com/watch?v=${
+      trailer ? trailer.key : "dQw4w9WgXcQ"
+    }`;
+
+    const release =
+      data.release_dates.results.find((r) => r.iso_3166_1 === "US") ||
+      data.release_dates.results.find((r) => r.iso_3166_1 === "ID") ||
+      data.release_dates.results[0];
+
+    let certification = release.release_dates.find(
       (r) => r.certification !== ""
     )?.certification;
+
+    let pCertification = document.createElement("p");
+    if (certification) {
+      pCertification.textContent = certification;
+    } else {
+      pCertification.textContent = "Not Rated";
+    }
+
+    badge.appendChild(pCertification);
 
     // looping genre
     data.genres.forEach((g) => {
@@ -72,7 +90,7 @@ async function fetchDetail() {
 
     desc.textContent = data.overview;
 
-    heroImg.src = `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
+    heroImg.src = `https://image.tmdb.org/t/p/original${data.poster_path}`;
     heroImg.alt = data.title;
 
     const director = data.credits.crew.find(
@@ -118,6 +136,12 @@ async function fetchDetail() {
       recommendationImg.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
       recommendationImg.alt = movie.title;
 
+      recommendationCard.appendChild(recommendationImg);
+
+      const recommendationContent = document.createElement("div");
+      recommendationContent.classList.add("recommendation-content");
+      recommendationCard.appendChild(recommendationContent);
+
       const recommendationTitle = document.createElement("p");
       recommendationTitle.classList.add("recommendation-title");
       recommendationTitle.textContent = movie.title;
@@ -126,12 +150,13 @@ async function fetchDetail() {
       recommendationRating.classList.add("recommendation-rating");
       recommendationRating.textContent = movie.vote_average.toFixed(1);
 
-      recommendationCard.appendChild(recommendationImg);
-      recommendationCard.appendChild(recommendationTitle);
-      recommendationCard.appendChild(recommendationRating);
+      recommendationContent.appendChild(recommendationTitle);
+      recommendationContent.appendChild(recommendationRating);
 
       recommendationList.appendChild(recommendationCard);
     });
+
+    lucide.createIcons();
   } catch (error) {
     console.error(error);
   }

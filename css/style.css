@@ -1,25 +1,15 @@
-@import url("./variable.css");
 @import url("./fonts.css");
+@import url("./variable.css");
 @import url("./reset.css");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
+  font-family: var(--font-nunito);
 }
 
 body {
-  font-family: var(--font-primary);
-  background-color: var(--color-background);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
   min-height: 100vh;
   min-width: 100vw;
   overflow-x: hidden;
@@ -33,21 +23,31 @@ body {
   display: flex;
 }
 
-.containerBox {
-  width: 100%;
+.background {
   height: 100vh;
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
+  width: 100%;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/assets/oo.jpg") center/cover no-repeat;
+  background-position: bottom;
+  opacity: 0.8;
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #010100);
 }
 
 .cardBox {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
   max-width: 600px;
 }
@@ -57,7 +57,7 @@ body {
 }
 
 .cardBox p {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-nunito);
   font-size: 18px;
 }
 
@@ -82,12 +82,12 @@ body {
 }
 
 .searchInput {
-    width: 80%;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    outline: none;
+  width: 80%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
 }
 
 .suggestionList {
@@ -118,4 +118,3 @@ body {
   text-align: left;
   font-weight: 600;
 }
-
