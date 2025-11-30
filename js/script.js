@@ -82,7 +82,6 @@ request("https://api.themoviedb.org/3/trending/movie/day?language=en-US")
       item.classList.add("trending-item");
 
       item.innerHTML = `
-        <span class="rank">${index + 1}</span>
         <img src="${poster}">
       `;
 

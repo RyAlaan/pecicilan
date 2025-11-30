@@ -48,10 +48,10 @@ body {
 .hero-content {
   position: absolute;
   max-width: 900px;
-  padding-top: 40px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 40px;
 }
@@ -90,7 +90,7 @@ body {
   justify-content: center;
   padding: 2px 8px;
   border-radius: 12px;
-  background-color: var(--background-color);
+  background-color: white;
   color: #010101;
 }
 
@@ -104,8 +104,9 @@ body {
 }
 
 .suggestionList {
-  background: #010101;
-  max-height: 200px;
+  background: white;
+  color: black;
+  max-height: 240px;
   width: 100%;
   overflow-y: auto;
 }
@@ -220,77 +221,58 @@ body {
   right: -20px;
 }
 
-@media (max-width: 1024px) {
-  .navbar {
-    padding: 16px 30px;
-  }
-
-  .hero-content h1 {
-    font-size: 42px;
-  }
-
-  .hero-content h2 {
-    font-size: 22px;
-  }
+.footer {
+  width: 100%;
+  background: #181818;
+  padding: 70px;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    padding: 14px 20px;
-  }
-
-  .logo {
-    font-size: 20px;
-  }
-
-  .hero-content h1 {
-    font-size: 34px;
-  }
-
-  .hero-content h2 {
-    font-size: 18px;
-  }
-
-  .hero-content p {
-    font-size: 14px;
-  }
-
-  .searchBox {
-    width: 100%;
-    max-width: 360px;
-  }
-
-  .searchBar i {
-    font-size: 18px;
-  }
+.footer-content {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.8;
 }
-.trending {
-    padding: 60px 20px;
-  }
 
-  .trending h2 {
-    font-size: 20px;
-  }
+.footer-contact {
+  margin-bottom: 15px;
+  color: #e0e0e0;
+}
 
-  .trending-item {
-    min-width: 160px;
-    height: 240px;
-  }
+.footer-links {
+  margin-bottom: 25px;
+  color: #bdbdbd;
+  letter-spacing: 1px;
+}
 
-  .rank {
-    font-size: 90px;
-  }
+.footer-desc {
+  margin-bottom: 50px;
+  color: #b0b0b0;
+  font-size: 15px;
+}
+
+.footer-copy {
+  color: #777;
+  font-size: 14px;
+}
 
 @media (max-width: 480px) {
+  .navbar {
+    padding-left: 10px;
+  }
+
   .hero {
+    height: 80vh;
     padding: 20px;
   }
 
-  .hero-content h1 {
-    font-size: 26px;
+  .hero-content {
+    padding-top: 90px;
   }
 
-  .hero-content h2 {
+  .hero-content h1 {
     font-size: 16px;
   }
 
@@ -313,7 +295,7 @@ body {
   }
 
   .suggestionList {
-    max-height: 160px;
+    max-height: 220px;
   }
 
   .suggestionItem {
@@ -326,5 +308,10 @@ body {
 
   .suggestionTitle {
     font-size: 12px;
+  }
+
+  .trending-item {
+    min-width: 100px;
+    height: 150px;
   }
 }

@@ -90,7 +90,9 @@ body {
 }
 
 .suggestionList {
-  width: 100%;
+  width: 80%;
+  position: relative;
+  left: 70px;
   max-height: 250px;
   overflow-y: auto;
   background: #fff;
@@ -107,7 +109,7 @@ body {
 
 .suggestionItem {
   display: flex;
-  align-items: start;
+  align-items: center;
   gap: 15px;
   padding: 10px;
   color: #fff;
@@ -359,11 +361,11 @@ body {
   font-size: 13px;
   color: gold;
 }
-/* 
+
 .footer {
   width: 100%;
   background: #181818;
-  padding: 70px 20px 40px;
+  padding: 70px;
 }
 
 .footer-content {
@@ -395,4 +397,244 @@ body {
 .footer-copy {
   color: #777;
   font-size: 14px;
-} */
+}
+
+
+@media (max-width: 768px) {
+
+  /* ===== NAVBAR ===== */
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .navbar .navbar-content {
+    gap: 16px;
+  }
+
+  .nav-left {
+    width: auto;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .nav-search {
+    padding: 0 14px;
+    gap: 10px;
+    height: 32px;
+  }
+
+  .nav-search input {
+    font-size: 13px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding: 100px 20px 40px;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .hero-header {
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .hero-title .year {
+    font-size: 16px;
+    margin-left: 6px;
+  }
+
+  .tags {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .play,
+  .badge,
+  .genre {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .hero-description h3 {
+    font-size: 18px;
+  }
+
+  .hero-description .desc {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .movie-info {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .director-name {
+    font-size: 16px;
+  }
+
+  .director-title {
+    font-size: 14px;
+  }
+
+  .hero-img {
+    width: 55%;
+    max-width: 220px;
+  }
+
+  .recommendation {
+    padding: 0 20px 40px;
+  }
+
+  .recommendation h2 {
+    font-size: 20px;
+  }
+
+  .recommendation-list {
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .recommendation-card {
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .recommendation-card p {
+    font-size: 13px;
+  }
+
+  .recommendation-card span {
+    font-size: 12px;
+  }
+
+  .suggestionList {
+    max-height: 200px;
+  }
+
+  .suggestionItem p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* ===== NAVBAR ===== */
+  .navbar {
+    padding: 12px 18px;
+  }
+
+  .navbar .navbar-content {
+    gap: 12px;
+  }
+
+  .nav-left {
+    padding: 0 10px;
+    font-size: 11px;
+    height: 28px;
+  }
+
+  .nav-search {
+    height: 28px;
+    padding: 0 12px;
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .nav-search input {
+    font-size: 11px;
+  }
+
+  /* ===== HERO TEXT SCALE ===== */
+  .hero {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 50px 30px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .hero-title .year {
+    font-size: 14px;
+  }
+
+  .hero-description h3 {
+    font-size: 16px;
+  }
+
+  .hero-description .desc {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .badge,
+  .genre,
+  .play {
+    font-size: 12px;
+    padding: 5px 9px;
+  }
+
+  /* ===== DIRECTOR SCALE ===== */
+  .director-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .director-name {
+    font-size: 15px;
+  }
+
+  .director-title {
+    font-size: 13px;
+  }
+
+  /* ===== HERO IMAGE SCALE ===== */
+  .hero-img {
+    width: 35%;
+  }
+
+  /* ===== RECOMMENDATION SCALE ===== */
+  .recommendation {
+    padding: 0 30px 36px 30px;
+  }
+
+  .recommendation h2 {
+    font-size: 18px;
+  }
+
+  .recommendation-card {
+    width: 140px;
+  }
+
+  .recommendation-card p {
+    font-size: 12px;
+  }
+
+  .recommendation-card span {
+    font-size: 11px;
+  }
+
+  /* ===== SUGGESTION ===== */
+  .suggestionList {
+    max-height: 180px;
+  }
+
+  .suggestionItem p {
+    font-size: 13px;
+  }
+}
