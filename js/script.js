@@ -16,6 +16,8 @@ const slideRight = document.getElementById("slideRight");
 //sliding effect
 const trendingSlider = document.getElementById("slider");
 
+//tranding
+
 let searchTimeout;
 
 // event listener for search input
@@ -27,12 +29,10 @@ inputSearch.addEventListener("keyup", (e) => {
   // call search value after 600ms of inactivity
   searchTimeout = setTimeout(() => {
     request(url + `query=${encodeURIComponent(searchValue)}`).then((data) => {
-
       suggestionList.innerHTML = "";
 
       // mapping results
       data.results.forEach((element) => {
-
         const suggestionItem = document.createElement("a");
 
         suggestionItem.href = `./detail.html?id=${element.id}`;
@@ -78,12 +78,14 @@ request("https://api.themoviedb.org/3/trending/movie/day?language=en-US")
         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
         : "https://via.placeholder.com/300x450?text=No+Image";
 
-      const item = document.createElement("div");
+      const item = document.createElement("a");
       item.classList.add("trending-item");
+      item.href = `./detail.html?id=${movie.id}`;
 
-      item.innerHTML = `
-        <img src="${poster}">
-      `;
+      const itemImage = document.createElement("img");
+      itemImage.src = poster;
+
+      item.appendChild(itemImage);
 
       trendingSlider.appendChild(item);
     });
