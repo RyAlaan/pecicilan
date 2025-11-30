@@ -46,8 +46,9 @@ body {
 }
 
 .hero-content {
-  position: relative;
+  position: absolute;
   max-width: 900px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,19 +60,14 @@ body {
   color: white;
 }
 
-.hero-header h1 {
+.hero-content h1 {
   color: white;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.hero-content h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.hero-header p {
+.hero-content p {
   font-size: 18px;
 }
 
